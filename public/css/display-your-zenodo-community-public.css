@@ -1,0 +1,59 @@
+span#empty {
+}
+
+#display-your-zenodo-community li {
+    list-style-type: disc;
+    word-wrap: break-word;
+}
+
+#zenodo-pagination {
+    list-style-type: disc;
+    margin-left: 20px;
+    word-wrap: break-word;
+}
+
+#zenodo-pagination li {
+    background: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    line-height: 1.5em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+li.active {
+    background: #BEBEBE;
+}
+
+.zenodo-pagination {
+    text-align: center;
+    margin: 20px;
+}
+
+.zenodo-pagination a, .zenodo-pagination li {
+    background: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    line-height: 1.5em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.zenodo-pagination .disabled {
+    pointer-events: none;
+}
+
+.zenodo-pagination a:hover {
+    background-color: #BEBEBE;
+    color: #fff;
+}
+
+.zenodo-pagination .active a {
+    background: #BEBEBE;
+}
