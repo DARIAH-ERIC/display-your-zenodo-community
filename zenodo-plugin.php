@@ -16,7 +16,7 @@
  * Plugin Name:       Display your Zenodo Community
  * Plugin URI:        https://github.com/dariah-eric/display-your-zenodo-community
  * Description:       This plugin allows user to view their community data from Zenodo on WordPress
- * Version:           0.0.1
+ * Version:           1.0.0
  * Author:            Yoann
  * Author URI:        https://www.dariah.eu
  * License:           Apache License - 2.0
