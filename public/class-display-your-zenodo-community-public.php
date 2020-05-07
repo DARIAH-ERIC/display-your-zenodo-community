@@ -100,9 +100,18 @@ class Display_Your_Zenodo_Community_Public {
 			$page = get_query_var( 'zenodo_page' );
 		}
 		$html = "<div id=\"display-your-zenodo-community\">";
-		$html .= "<ul>";
 		$result_api = $this->zp_retrieve_json( $page );
-		$nb_in_results = 1;
+		$nb_pages = 1;
+		if( isset( $result_api->aggregations->access_right->buckets[0]->doc_count ) ) {
+			$nb_pages = ceil( $result_api->aggregations->access_right->buckets[0]->doc_count / 10 );
+			$html .= "<hr>";
+			$html .= "<div class=\"counter-doc\">";
+			$html .= "<span class=\"wphal-nbtot\">";
+			$html .= $result_api->aggregations->access_right->buckets[0]->doc_count;
+			$html .= "</span>" . " documents";
+			$html .= "</div>";
+		}
+		$html .= "<ul>";
 		foreach ( $result_api->hits->hits as $hit ) {
 			$html .= "<li>";
 			$creator_str = "";
@@ -132,10 +141,6 @@ class Display_Your_Zenodo_Community_Public {
 		$html .= "</ul>";
 
 		$html .= "<ul class='zenodo-pagination'>";
-		$nb_pages = 1;
-		if( isset( $result_api->aggregations->access_right->buckets[0]->doc_count ) ) {
-			$nb_pages = floor( $result_api->aggregations->access_right->buckets[0]->doc_count / 10 );
-		}
 		//Taken away from HAL plugin to have the same usability!
 		if( $page == 1 ) {
 			$html .= '<li class="disabled"><a href="#">&laquo;</a></li>';
