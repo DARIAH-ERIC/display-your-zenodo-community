@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 2020-05-15
+### Added
+- Added 2 screenshots for WordPress
+### Changed
+- Modification of description
+- Modification of plugin author
+
 ## [1.0.0] - 2020-05-07
 ### Added
 - First skeleton of the plugin

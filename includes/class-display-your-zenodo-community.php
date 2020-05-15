@@ -12,7 +12,7 @@
  * @package    Display_Your_Zenodo_Community
  * @subpackage Display_Your_Zenodo_Community/includes
  * @link       https://www.dariah.eu
- * @author     Yoann <yoann.moranville@dariah.eu>
+ * @author     DARIAH-EU
  */
 class Display_Your_Zenodo_Community {
 	/**
@@ -53,7 +53,7 @@ class Display_Your_Zenodo_Community {
 		if ( defined( 'ZENODO_PLUGIN_VERSION' ) ) {
 			$this->version = ZENODO_PLUGIN_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'display-your-zenodo-community';
 		$this->load_dependencies();
