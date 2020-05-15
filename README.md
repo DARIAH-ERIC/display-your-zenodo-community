@@ -1,11 +1,9 @@
 # Display your Zenodo Community
 
-_Developed by DARIAH for [www.dariah.eu](https://www.dariah.eu/)_
- 
-This WordPress plugin allows users to see their [Zenodo](https://zenodo.org) Community data.
-In order to do so, it needs to have access to the [Zenodo REST API](https://developers.zenodo.org), without it, the
- plugin will not work. When using this plugin, you will also need to accept the Zenodo's 
- [Privacy Policy](https://about.zenodo.org/privacy-policy/) and its [Terms of Use](https://about.zenodo.org/terms/).
+This WordPress plugin allows users to display content of their [Zenodo](https://zenodo.org/) Community on Wordpress pages, for instance, if they wish to integrate a dynamic bibliography of their work with their blog or website.
+To do so, access to the [Zenodo REST API](https://developers.zenodo.org/) is required, without it, the
+plugin will not work. When using this plugin, you will also need to accept the Zenodo’s [Privacy Policy](https://about.zenodo.org/privacy-policy/) and its [Terms of Use](https://about.zenodo.org/terms/).
+Originally, the plugin has been created for and by [DARIAH-EU](www.dariah.eu). You can find it implemented here: https://www.dariah.eu/about/publications/.
 
 ---
 
