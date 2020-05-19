@@ -22,6 +22,9 @@ Originally, the plugin has been created for and by [DARIAH-EU](https://www.daria
 1. Upload directory `display-your-zenodo-community` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
+A very simple administration page (in Settings -> Zenodo) to choose your Zenodo community (e.g. `dariah` or `operaseu`).
+On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
+
 == Frequently Asked Questions ==
 
 None
@@ -32,6 +35,9 @@ None
 2. Very simple administration page to choose your Zenodo community
 
 == Changelog ==
+
+= Unreleased =
+* Add description in order to add a shortcode to the page
 
 = 1.0.1 =
 * Added 2 screenshots for WordPress
