@@ -12,7 +12,7 @@
  * @package    Display_Your_Zenodo_Community
  * @subpackage Display_Your_Zenodo_Community/includes
  * @link       https://www.dariah.eu
- * @author     DARIAH-EU
+ * @author     Yoann <yoann.moranville@dariah.eu>
  */
 class Display_Your_Zenodo_Community {
 	/**

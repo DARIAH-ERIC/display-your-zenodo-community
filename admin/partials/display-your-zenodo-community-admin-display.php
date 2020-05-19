@@ -19,7 +19,7 @@
 
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
-	<h2 class="nav-tab-wrapper">RDFa Settings</h2>
+	<h2 class="nav-tab-wrapper">Zenodo Settings</h2>
 
     <form method="post" name="display_your_zenodo_community_options" action="options.php">
 
