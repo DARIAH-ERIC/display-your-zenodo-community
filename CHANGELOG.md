@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.3] - 2020-05-19
+### Changed
+- Bump the version on WordPress website
+
 ## [1.0.2] - 2020-05-19
 ### Added
 - Add description in order to add a shortcode to the page
