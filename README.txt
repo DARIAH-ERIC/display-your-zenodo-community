@@ -36,7 +36,7 @@ None
 
 == Changelog ==
 
-= Unreleased =
+= 1.0.2 =
 * Add description in order to add a shortcode to the page
 
 = 1.0.1 =
