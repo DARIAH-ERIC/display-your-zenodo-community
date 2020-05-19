@@ -5,7 +5,7 @@ Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
 Tested up to: 5.4
 Requires PHP: 5.6.35
-Stable tag: 1.0.1
+Stable tag: 1.0.3
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -35,6 +35,9 @@ None
 2. Very simple administration page to choose your Zenodo community
 
 == Changelog ==
+
+= 1.0.3 =
+* Bump the version on WordPress website
 
 = 1.0.2 =
 * Add description in order to add a shortcode to the page
