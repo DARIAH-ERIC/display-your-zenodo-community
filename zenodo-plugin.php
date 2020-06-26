@@ -13,7 +13,7 @@
  * @package           Display_Your_Zenodo_Community
  *
  * @wordpress-plugin
- * Plugin Name:       Display your Zenodo Community
+ * Plugin Name:       Display your Zenodo Publications
  * Plugin URI:        https://github.com/dariah-eric/display-your-zenodo-community
  * Description:       This plugin allows user to view their community data from Zenodo on WordPress
  * Version:           1.0.3

@@ -95,6 +95,10 @@ class Display_Your_Zenodo_Community_Public {
 	 * @since    1.0.0
 	 */
 	public function display_zenodo_data() {
+		$display_your_zenodo_community_options = get_option( $this->plugin_name );
+		$choice = $display_your_zenodo_community_options['choice'];
+		$id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
+
 		$page = 1;
 		if( is_numeric( get_query_var( 'zenodo_page' ) ) ) {
 			$page = get_query_var( 'zenodo_page' );
@@ -108,7 +112,8 @@ class Display_Your_Zenodo_Community_Public {
 			$html .= "<div class=\"counter-doc\">";
 			$html .= "<span class=\"wphal-nbtot\">";
 			$html .= $result_api->aggregations->access_right->buckets[0]->doc_count;
-			$html .= "</span>" . " documents";
+			$html .= "</span>" . " documents (from " . ($choice=='community'?"Community \"":"ORCID \"") .
+			         $id_community_orcid . "\")";
 			$html .= "</div>";
 		}
 		$html .= "<ul>";
@@ -214,12 +219,18 @@ class Display_Your_Zenodo_Community_Public {
 	 */
 	public function zp_retrieve_json( $page = 1 ) {
 		$display_your_zenodo_community_options = get_option( $this->plugin_name );
-		$id_community = $display_your_zenodo_community_options['id_community'];
-		if( $id_community !== '' ) {
-			$zenodo_api_url = "https://zenodo.org/api/records/?sort=mostrecent&size=10&communities=" . $id_community;
+		$choice = $display_your_zenodo_community_options['choice'];
+		$id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
+
+		$zenodo_api_url = "";
+		if( $choice == 'community' ) {
+			$zenodo_api_url = "https://zenodo.org/api/records/?sort=mostrecent&size=10&communities=" . $id_community_orcid;
 			$zenodo_api_url .= "&page=" . $page;
-
-
+		} elseif ( $choice == 'orcid' ) {
+			$zenodo_api_url = "https://zenodo.org/api/records/?q=creators.orcid:%22" . $id_community_orcid . "%22";
+			$zenodo_api_url .= "&page=" . $page;
+		}
+		if( $id_community_orcid !== '' && $zenodo_api_url !== '' ) {
 			$request = wp_remote_get( $zenodo_api_url );
 			if( is_wp_error( $request ) ) {
 				return false;

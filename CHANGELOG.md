@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- The plugin now allows users to retrieve their publications with their ORCID and not only Community publications
+### Changed
+- Change name of plugin (old `Display your Zenodo Community`)
+- Screenshots have been updated
 
 ## [1.0.3] - 2020-05-19
 ### Changed
