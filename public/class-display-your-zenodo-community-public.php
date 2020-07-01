@@ -133,9 +133,9 @@ class Display_Your_Zenodo_Community_Public {
 				$html .= " " . $hit->metadata->title;
 			}
 			if( isset( $hit->metadata->version ) ) {
-				$html .= " (Version " . $hit->metadata->version . ").";
+				$html .= " (Version " . $hit->metadata->version . ")";
 			}
-			$html .= " Zenodo.";
+			$html .= ". Zenodo.";
 			if( isset( $hit->links->doi ) ) {
 				$html .= " <a href='" . $hit->links->doi . "'>" . $hit->links->doi . "</a>";
 			} elseif( isset( $hit->links->latest_html ) ) {
