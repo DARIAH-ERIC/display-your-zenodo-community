@@ -53,7 +53,7 @@ class Display_Your_Zenodo_Community {
 		if ( defined( 'ZENODO_PLUGIN_VERSION' ) ) {
 			$this->version = ZENODO_PLUGIN_VERSION;
 		} else {
-			$this->version = '1.0.3';
+			$this->version = '1.1.0';
 		}
 		$this->plugin_name = 'display-your-zenodo-community';
 		$this->load_dependencies();

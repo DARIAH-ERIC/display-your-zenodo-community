@@ -5,7 +5,7 @@ Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
 Tested up to: 5.4
 Requires PHP: 5.6.35
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -44,7 +44,7 @@ differentiate authors.
 
 == Changelog ==
 
-= Unreleased =
+= 1.1.0 =
 * The plugin now allows users to retrieve their publications with their ORCID and not only Community publications
 * Change name of plugin (old `Display your Zenodo Community`)
 * Screenshots have been updated
