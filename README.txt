@@ -1,24 +1,29 @@
-=== Display your Zenodo Community ===
+=== Display your Zenodo Publications ===
 Contributors: yoannspace
 Donate link:
 Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
 Tested up to: 5.4
 Requires PHP: 5.6.35
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
-This WordPress plugin allows users to see their Zenodo Community data.
+This WordPress plugin allows users to see their Zenodo publications (either from a Community or related to their ORCID).
 
 == Description ==
 
-This WordPress plugin allows users to display content of their [Zenodo](https://zenodo.org/) Community on Wordpress pages, for instance, if they wish to integrate a dynamic bibliography of their work with their blog or website.
+This WordPress plugin allows users to display content of their [Zenodo](https://zenodo.org/) Community or the publications of an author using an ORCID on Wordpress pages, for instance, if they wish to integrate a dynamic bibliography of their work with their blog or website.
 To do so, access to the [Zenodo REST API](https://developers.zenodo.org/) is required, without it, the plugin will not work. When using this plugin, you will also need to accept the Zenodo’s [Privacy Policy](https://about.zenodo.org/privacy-policy/) and its [Terms of Use](https://about.zenodo.org/terms/).
 Originally, the plugin has been created for and by [DARIAH-EU](https://www.dariah.eu). You can find it implemented here: [https://www.dariah.eu/about/publications/](https://www.dariah.eu/about/publications/).
 
 == Installation ==
 
+Via WordPress plugins
+1. Install via [WordPress plugins](https://www.wordpress.org/plugins/display-your-zenodo-community)
+1. Activate the plugin through the 'Plugins' menu in WordPress
+
+Manually
 1. Upload directory `display-your-zenodo-community` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
@@ -27,14 +32,22 @@ On the page you want to present the Zenodo data, add the shortcode `[display-you
 
 == Frequently Asked Questions ==
 
-None
+= I don't have an ORCID, can I still use the plugin to display my publications with my name? =
+Unfortunately, no. The reason being that queries to the Zenodo API do not work well with names since they can't
+differentiate authors.
 
 == Screenshots ==
 
 1. Display of the Zenodo Community data on the DARIAH-EU website
 2. Very simple administration page to choose your Zenodo community
+3. Very simple administration page to choose your ORCID
 
 == Changelog ==
+
+= 1.1.0 =
+* The plugin now allows users to retrieve their publications with their ORCID and not only Community publications
+* Change name of plugin (old `Display your Zenodo Community`)
+* Screenshots have been updated
 
 = 1.0.3 =
 * Bump the version on WordPress website

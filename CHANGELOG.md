@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-07-01
+### Added
+- The plugin now allows users to retrieve their publications with their ORCID and not only Community publications
+### Changed
+- Change name of plugin (old `Display your Zenodo Community`)
+- Screenshots have been updated
+
 ## [1.0.3] - 2020-05-19
 ### Changed
 - Bump the version on WordPress website

@@ -126,7 +126,7 @@ class Display_Your_Zenodo_Community_Admin {
 	 * @since    1.0.0
 	 */
 	public function options_update() {
-		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'id_community' => '' ) ) );
+		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'id_community_orcid' => '', 'choice' => '' ) ) );
 	}
 	/**
 	 * Validate all options fields
@@ -136,7 +136,9 @@ class Display_Your_Zenodo_Community_Admin {
 	public function validate( $input ) {
 		// All checkboxes inputs
 		$valid = array();
-        $valid['id_community'] = (isset($input['id_community']) && !empty($input['id_community'])) ? sanitize_text_field($input['id_community']) : '';
+        $valid['id_community_orcid'] = (isset($input['id_community_orcid']) && !empty($input['id_community_orcid'])) ?
+	        sanitize_text_field($input['id_community_orcid']) : '';
+        $valid['choice'] = sanitize_text_field($input['choice']);
         return $valid;
 	}
 }

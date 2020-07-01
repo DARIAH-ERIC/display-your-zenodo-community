@@ -20,22 +20,40 @@
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 	<h2 class="nav-tab-wrapper">Zenodo Settings</h2>
+    <p>Please select in the dropdown list either "Community" or "ORCID" and enter the value corresponding.</p>
+    <p>If you select "Community", please enter a value such as "dariah" so a query on
+        https://zenodo.org/api/records/?communities=dariah returns results.</p>
+    <p>If you select "ORCID", please enter a value such as "0000-0002-5350-067X" so a query on
+        https://zenodo.org/api/records/?q=creators.orcid:"0000-0002-5350-067X" returns results.</p>
 
     <form method="post" name="display_your_zenodo_community_options" action="options.php">
 
 		<?php
 		//Grab all options
         $display_your_zenodo_community_options = get_option( $this->plugin_name );
-        $id_community = $display_your_zenodo_community_options['id_community'];
+        $choice = $display_your_zenodo_community_options['choice'];
+        $id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
 
         $html = "<tr>
                     <th scope=\"row\">
-                        <label for=\"" . $this->plugin_name . "-id-community\">" . translate('Name of community (e.g. dariah)',
+                        <label for=\"" . $this->plugin_name . "-choice\">" . translate('Choice of community or orcid',
+				$this->plugin_name) . "</label>
+                    </th>
+                    <td>
+                        <select name=\"" . $this->plugin_name . "[choice]\" id=\"" . $this->plugin_name . "-choice\">
+                            <option value=\"community\"" . (($choice=='community')?" selected=\"selected\"":"") . ">Community</option>
+                            <option value=\"orcid\"" . (($choice=='orcid')?" selected=\"selected\"":"") . ">ORCID</option>
+                        </select>
+                    </td>
+                </tr>";
+        $html .= "<tr>
+                    <th scope=\"row\">
+                        <label for=\"" . $this->plugin_name . "-id-community-orcid\">" . translate('Value (e.g. dariah or 0000-0002-5350-067X)',
 		        $this->plugin_name) . "</label>
                     </th>
                     <td>
-                        <input name=\"" . $this->plugin_name . "[id_community]\" id=\"" . $this->plugin_name
-                        . "-id-community\" value=\"" . $id_community . "\" type=\"text\">
+                        <input name=\"" . $this->plugin_name . "[id_community_orcid]\" id=\"" . $this->plugin_name
+                        . "-id-community-orcid\" value=\"" . $id_community_orcid . "\" type=\"text\">
                     </td>
                 </tr>";
 
