@@ -95,15 +95,21 @@ class Display_Your_Zenodo_Community_Public {
 	 * @since    1.0.0
 	 */
 	public function display_zenodo_data() {
+        $display_your_zenodo_community_options = get_option( $this->plugin_name );
+        $number_publications = 10;
+        if( array_key_exists( 'number_publications', $display_your_zenodo_community_options ) ) {
+            $number_publications = $display_your_zenodo_community_options['number_publications'];
+        }
+
 		$page = 1;
 		if( is_numeric( get_query_var( 'zenodo_page' ) ) ) {
 			$page = get_query_var( 'zenodo_page' );
 		}
 		$html = "<div id=\"display-your-zenodo-community\">";
-		$result_api = $this->zp_retrieve_json( $page );
+		$result_api = $this->zp_retrieve_json( $page, $display_your_zenodo_community_options );
 		$nb_pages = 1;
 		if( isset( $result_api->aggregations->access_right->buckets[0]->doc_count ) ) {
-			$nb_pages = ceil( $result_api->aggregations->access_right->buckets[0]->doc_count / 10 );
+			$nb_pages = ceil( $result_api->aggregations->access_right->buckets[0]->doc_count / $number_publications );
 			$html .= "<hr>";
 			$html .= "<div class=\"counter-doc\">";
 			$html .= "<span class=\"wphal-nbtot\">";
@@ -212,9 +218,9 @@ class Display_Your_Zenodo_Community_Public {
 	 * @return string The full JSON response from the query
 	 * @since    1.0.0
 	 */
-	public function zp_retrieve_json( $page = 1 ) {
-		$display_your_zenodo_community_options = get_option( $this->plugin_name );
+	public function zp_retrieve_json( $page = 1, $display_your_zenodo_community_options ) {
         $choice = $id_community_orcid = $extra_keyword = "";
+        $number_publications = 10;
         if( array_key_exists( 'choice', $display_your_zenodo_community_options ) ) {
             $choice = $display_your_zenodo_community_options['choice'];
         }
@@ -224,8 +230,11 @@ class Display_Your_Zenodo_Community_Public {
         if( array_key_exists( 'extra_keyword', $display_your_zenodo_community_options ) ) {
             $extra_keyword = $display_your_zenodo_community_options['extra_keyword'];
         }
+        if( array_key_exists( 'number_publications', $display_your_zenodo_community_options ) ) {
+            $number_publications = $display_your_zenodo_community_options['number_publications'];
+        }
 
-		$zenodo_api_url = "https://zenodo.org/api/records/?sort=mostrecent&size=10&page=" . $page . "&";
+		$zenodo_api_url = "https://zenodo.org/api/records/?sort=mostrecent&size=" .$number_publications . "&page=" . $page . "&";
         $zenodo_api_query = "";
 		if( $choice == 'community' ) {
 			$zenodo_api_query = "communities=" . $id_community_orcid;

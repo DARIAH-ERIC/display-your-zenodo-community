@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Administrators can add a keyword for limiting the results. This is for example to select a subset of the publication for a certain project within an institution.
+- Administrators can choose the number of publications shown per page
 
 ## [1.1.0] - 2020-07-01
 ### Added

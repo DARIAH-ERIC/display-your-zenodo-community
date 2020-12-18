@@ -28,6 +28,7 @@ Manually
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 A very simple administration page (in Settings -> Zenodo) to choose your Zenodo community (e.g. `dariah` or `operaseu`).
+For administrators, possibility as well to search for a subset (with keywords) of the publications, as well as possibility to choose the number of publication shown per page.
 On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
 
 == Frequently Asked Questions ==

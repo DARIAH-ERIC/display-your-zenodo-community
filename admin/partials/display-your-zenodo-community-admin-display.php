@@ -32,6 +32,7 @@
 		//Grab all options
         $display_your_zenodo_community_options = get_option( $this->plugin_name );
         $choice = $id_community_orcid = $extra_keyword = "";
+        $number_publications = 10;
         if( array_key_exists( 'choice', $display_your_zenodo_community_options ) ) {
             $choice = $display_your_zenodo_community_options['choice'];
         }
@@ -40,6 +41,9 @@
         }
         if( array_key_exists( 'extra_keyword', $display_your_zenodo_community_options ) ) {
             $extra_keyword = $display_your_zenodo_community_options['extra_keyword'];
+        }
+        if( array_key_exists( 'number_publications', $display_your_zenodo_community_options ) ) {
+            $number_publications = $display_your_zenodo_community_options['number_publications'];
         }
 
         $html = "<tr>
@@ -72,6 +76,16 @@
                     <td>
                         <input name=\"" . $this->plugin_name . "[extra_keyword]\" id=\"" . $this->plugin_name
             . "-extra-keyword\" value=\"" . $extra_keyword . "\" type=\"text\">
+                    </td>
+                </tr>";
+        $html .= "<tr>
+                    <th scope=\"row\">
+                        <label for=\"" . $this->plugin_name . "-number-publications\">" . translate('Number of publications shown per page (default in Zenodo is 10)',
+                $this->plugin_name) . "</label>
+                    </th>
+                    <td>
+                        <input name=\"" . $this->plugin_name . "[number_publications]\" id=\"" . $this->plugin_name
+            . "-number-publications\" value=\"" . $number_publications . "\" type=\"number\" min=\"1\" max=\"100\">
                     </td>
                 </tr>";
 
