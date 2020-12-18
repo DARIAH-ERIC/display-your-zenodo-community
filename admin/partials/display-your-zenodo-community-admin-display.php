@@ -31,8 +31,16 @@
 		<?php
 		//Grab all options
         $display_your_zenodo_community_options = get_option( $this->plugin_name );
-        $choice = $display_your_zenodo_community_options['choice'];
-        $id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
+        $choice = $id_community_orcid = $extra_keyword = "";
+        if( array_key_exists( 'choice', $display_your_zenodo_community_options ) ) {
+            $choice = $display_your_zenodo_community_options['choice'];
+        }
+        if( array_key_exists( 'id_community_orcid', $display_your_zenodo_community_options ) ) {
+            $id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
+        }
+        if( array_key_exists( 'extra_keyword', $display_your_zenodo_community_options ) ) {
+            $extra_keyword = $display_your_zenodo_community_options['extra_keyword'];
+        }
 
         $html = "<tr>
                     <th scope=\"row\">
@@ -54,6 +62,16 @@
                     <td>
                         <input name=\"" . $this->plugin_name . "[id_community_orcid]\" id=\"" . $this->plugin_name
                         . "-id-community-orcid\" value=\"" . $id_community_orcid . "\" type=\"text\">
+                    </td>
+                </tr>";
+        $html .= "<tr>
+                    <th scope=\"row\">
+                        <label for=\"" . $this->plugin_name . "-extra-keyword\">" . translate('Refine search with keywords (tags in Zenodo e.g. TRIPLE)',
+                $this->plugin_name) . "</label>
+                    </th>
+                    <td>
+                        <input name=\"" . $this->plugin_name . "[extra_keyword]\" id=\"" . $this->plugin_name
+            . "-extra-keyword\" value=\"" . $extra_keyword . "\" type=\"text\">
                     </td>
                 </tr>";
 
