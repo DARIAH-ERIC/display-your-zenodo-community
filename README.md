@@ -16,7 +16,8 @@ Originally, the plugin has been created for and by [DARIAH-EU](https://www.daria
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 A very simple administration page (in Settings -> Zenodo) to choose your Zenodo community (e.g. `dariah` or `operaseu
-`) or choose your personal ORCID.
+`) or choose your personal ORCID. For administrators, possibility as well to search for a subset (with keywords) of
+ the publications, as well as possibility to choose the number of publication shown per page. 
 On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
 # How does it work?
 With API request directly to Zenodo, with your community identifier or your ORCID added in the admin page, you can

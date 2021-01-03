@@ -3,9 +3,9 @@ Contributors: yoannspace
 Donate link:
 Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
-Tested up to: 5.4
+Tested up to: 5.6
 Requires PHP: 5.6.35
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -28,6 +28,7 @@ Manually
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 A very simple administration page (in Settings -> Zenodo) to choose your Zenodo community (e.g. `dariah` or `operaseu`).
+For administrators, possibility as well to search for a subset (with keywords) of the publications, as well as possibility to choose the number of publication shown per page.
 On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
 
 == Frequently Asked Questions ==
@@ -43,6 +44,11 @@ differentiate authors.
 3. Very simple administration page to choose your ORCID
 
 == Changelog ==
+
+= 1.2.0 =
+* Administrators can add a keyword for limiting the results. This is for example to select a subset of the publication for a certain project within an institution.
+* Administrators can choose the number of publications shown per page (default is 10)
+* Fixed a bug that would make the plugin query Zenodo at the init stage of all pages
 
 = 1.1.0 =
 * The plugin now allows users to retrieve their publications with their ORCID and not only Community publications

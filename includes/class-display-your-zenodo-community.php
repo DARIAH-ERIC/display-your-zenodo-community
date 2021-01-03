@@ -53,7 +53,7 @@ class Display_Your_Zenodo_Community {
 		if ( defined( 'ZENODO_PLUGIN_VERSION' ) ) {
 			$this->version = ZENODO_PLUGIN_VERSION;
 		} else {
-			$this->version = '1.1.0';
+			$this->version = '1.2.0';
 		}
 		$this->plugin_name = 'display-your-zenodo-community';
 		$this->load_dependencies();
@@ -142,7 +142,6 @@ class Display_Your_Zenodo_Community {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_filter( 'init', $plugin_public, 'zp_retrieve_json' );
 		$this->loader->add_filter( 'query_vars', $plugin_public, 'zp_query_vars' );
 	}
 
