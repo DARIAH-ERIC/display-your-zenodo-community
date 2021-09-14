@@ -3,7 +3,7 @@ Contributors: yoannspace
 Donate link:
 Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
-Tested up to: 5.6
+Tested up to: 5.8
 Requires PHP: 5.6.35
 Stable tag: 1.2.0
 License: Apache License - 2.0
