@@ -91,10 +91,17 @@ class Display_Your_Zenodo_Community_Public {
 
 	/**
 	 * Render the result page of Zenodo community
+     *
+     * @param String $attr Attributes that could be used in the shortcodes
 	 *
 	 * @since    1.0.0
 	 */
-	public function display_zenodo_data() {
+	public function display_zenodo_data( $attr ) {
+        $shortcode_specific_keyword = '';
+        if( is_array( $attr ) ) {
+            $shortcode_specific_keyword = sanitize_text_field( $attr['keyword'] );
+        }
+
         $display_your_zenodo_community_options = get_option( $this->plugin_name );
         $number_publications = 10;
         if( array_key_exists( 'number_publications', $display_your_zenodo_community_options ) ) {
@@ -106,7 +113,7 @@ class Display_Your_Zenodo_Community_Public {
 			$page = get_query_var( 'zenodo_page' );
 		}
 		$html = "<div id=\"display-your-zenodo-community\">";
-		$result_api = $this->zp_retrieve_json( $page, $display_your_zenodo_community_options );
+		$result_api = $this->zp_retrieve_json( $page, $display_your_zenodo_community_options, $shortcode_specific_keyword );
 		$nb_pages = 1;
 		if( isset( $result_api->aggregations->access_right->buckets[0]->doc_count ) ) {
 			$nb_pages = ceil( $result_api->aggregations->access_right->buckets[0]->doc_count / $number_publications );
@@ -214,11 +221,13 @@ class Display_Your_Zenodo_Community_Public {
 	 * Action to do when the page is created, so we can make a request to Zenodo and display the results.
 	 *
 	 * @param int $page Page of Zenodo data
+	 * @param array $display_your_zenodo_community_options Options available form the admin interface
+	 * @param String $shortcode_specific_keyword Specific shortcode parameter for keywords search in Zenodo
 	 *
 	 * @return string The full JSON response from the query
 	 * @since    1.0.0
 	 */
-	public function zp_retrieve_json( $page = 1, $display_your_zenodo_community_options ) {
+	public function zp_retrieve_json( $page = 1, $display_your_zenodo_community_options, $shortcode_specific_keyword ) {
         $choice = $id_community_orcid = $extra_keyword = "";
         $number_publications = 10;
         if( array_key_exists( 'choice', $display_your_zenodo_community_options ) ) {
@@ -227,7 +236,9 @@ class Display_Your_Zenodo_Community_Public {
         if( array_key_exists( 'id_community_orcid', $display_your_zenodo_community_options ) ) {
             $id_community_orcid = $display_your_zenodo_community_options['id_community_orcid'];
         }
-        if( array_key_exists( 'extra_keyword', $display_your_zenodo_community_options ) ) {
+        if( $shortcode_specific_keyword ) { //Favour the shortcode than the admin option (admin option is general, shortcode option is what we need)
+            $extra_keyword = $shortcode_specific_keyword;
+        } elseif( array_key_exists( 'extra_keyword', $display_your_zenodo_community_options ) ) {
             $extra_keyword = $display_your_zenodo_community_options['extra_keyword'];
         }
         if( array_key_exists( 'number_publications', $display_your_zenodo_community_options ) ) {

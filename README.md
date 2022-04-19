@@ -19,6 +19,10 @@ A very simple administration page (in Settings -> Zenodo) to choose your Zenodo 
 `) or choose your personal ORCID. For administrators, possibility as well to search for a subset (with keywords) of
  the publications, as well as possibility to choose the number of publication shown per page. 
 On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
+
+A new option is possible: by entering a parameter `keyword` directly in your shortcode (e.g. `[display-your-zenodo-community keyword='DMP']`), you would only retrieve the records of your community (or ORCID user) that have this specific tag/keyword. That's to be able to provide different lists of records on different pages of the same website (we could also add the possibility for different communities/orcid as well if anyone needs it).\
+**Note:** It will favour/prefer the keyword parameter over the admin option extra_keyword (if it was entered), so the admin option would be overwritten by this keyword parameter.
+
 # How does it work?
 With API request directly to Zenodo, with your community identifier or your ORCID added in the admin page, you can
- retrieve some information of disseminated data on Zenodo.
+ retrieve some information of disseminated data on Zenodo and print them on your Wordpress website.

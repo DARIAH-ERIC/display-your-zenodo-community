@@ -3,9 +3,9 @@ Contributors: yoannspace
 Donate link:
 Tags: zenodo, dariah, operas, community, api
 Requires at least: 4.9.1
-Tested up to: 5.6
+Tested up to: 5.9
 Requires PHP: 5.6.35
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -31,6 +31,9 @@ A very simple administration page (in Settings -> Zenodo) to choose your Zenodo 
 For administrators, possibility as well to search for a subset (with keywords) of the publications, as well as possibility to choose the number of publication shown per page.
 On the page you want to present the Zenodo data, add the shortcode `[display-your-zenodo-community]` to see the publications.
 
+A new option is possible: by entering a parameter `keyword` directly in your shortcode (e.g. `[display-your-zenodo-community keyword='DMP']`), you would only retrieve the records of your community (or ORCID user) that have this specific tag/keyword. That's to be able to provide different lists of records on different pages of the same website (we could also add the possibility for different communities/orcid as well if anyone needs it).
+Note: It will favour/prefer the keyword parameter over the admin option extra_keyword (if it was entered), so the admin option would be overwritten by this keyword parameter.
+
 == Frequently Asked Questions ==
 
 = I don't have an ORCID, can I still use the plugin to display my publications with my name? =
@@ -44,6 +47,9 @@ differentiate authors.
 3. Very simple administration page to choose your ORCID
 
 == Changelog ==
+
+= 1.2.1 =
+* Shortcodes can now take a keyword attribute - it will bypass the admin `extra keyword` option and search only for the records with this keyword/tag in Zenodo.
 
 = 1.2.0 =
 * Administrators can add a keyword for limiting the results. This is for example to select a subset of the publication for a certain project within an institution.
